@@ -5,11 +5,10 @@ GET http://localhost:3000/volcab
 POST http://localhost:3000/v1/volcab/create
 Content-Type: application/json
 
-
 {
-    "eng":"go",
-    "vnese":["đi","aa"],
-    "example":["I go to school"]
+    "eng":"Hi",
+    "vnese": ["xin chào"],
+    "example":["hello baby"]
 }
 
 ###  update
@@ -22,8 +21,16 @@ Content-Type: application/json
     "vnese":["đi"]
 }
 
+### delete
+
+DELETE http://localhost:3000/v1/volcab/delete
+Content-Type: application/json
+
+{
+    "_id":"64a762f803fb58251d69f846"
+}
 
 ### get all
-GET http://localhost:3000/v1/volcab/get-all
+GET http://localhost:3000/v1/volcab/get-random
 
 

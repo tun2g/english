@@ -7,3 +7,34 @@
 07-07-2023	07:01:10----route: /volcab----method: GET----a is not defined
 07-07-2023	07:50:50----route: /v1/volcab/create----method: GET----Unexpected token } in JSON at position 71
 07-07-2023	07:55:28----route: /v1/volcab/create----method: POST----volcabs validation failed: creater: Cast to ObjectId failed for value "a" (type string) at path "creater" because of "BSONError"
+07-07-2023	11:07:45----route: /v1/volcab/update/tung----method: PUT----Cast to ObjectId failed for value "64a762f803fb58251d69f84q" (type string) at path "_id" for model "volcabs"
+07-07-2023	14:36:31----route: /v1/volcab/create----method: POST----Volcab.validateInput is not a function
+07-07-2023	14:37:10----route: /v1/volcab/create----method: POST----Volcab.validateInput is not a function
+07-07-2023	14:38:37----route: /v1/volcab/create----method: POST----Volcab.validateInput is not a function
+07-07-2023	14:43:50----route: /v1/volcab/create----method: POST----"vnese" must be an array
+07-07-2023	14:45:19----route: /v1/volcab/create----method: POST----"vnese" must be an array
+07-07-2023	15:00:02----route: /v1/volcab/create----method: POST----"vnese" must be an array
+07-07-2023	15:01:12----route: /v1/volcab/create----method: POST----"vnese" must be an array
+07-07-2023	15:09:38----route: /v1/volcab/delete----method: DELETE----Cast to ObjectId failed for value "111" (type string) at path "_id" for model "volcabs"
+07-07-2023	15:09:57----route: /v1/volcab/delete----method: DELETE----Cast to ObjectId failed for value "4a762f803fb58251d69f846" (type string) at path "_id" for model "volcabs"
+07-07-2023	15:11:07----route: /v1/volcab/delete----method: DELETE----Cast to ObjectId failed for value "4a762f803fb58251d69f846" (type string) at path "_id" for model "volcabs"
+07-07-2023	15:26:48----route: /v1/volcab/create----method: POST----"vnese" must be an array
+07-07-2023	15:26:57----route: /v1/volcab/create----method: POST----"synonysm" is not allowed
+07-07-2023	15:27:03----route: /v1/volcab/create----method: POST----"synonysms" is not allowed
+07-07-2023	15:36:47----route: /v1/volcab/create----method: POST----"usesage" is not allowed to be empty
+07-07-2023	15:54:47----route: /v1/volcab/get-pag----method: GET----limit is not defined
+07-07-2023	21:37:42----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:38:20----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:38:21----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:38:22----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:38:22----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:38:22----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:39:36----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:39:37----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:40:10----route: /v1/volcab/get-random----method: GET----Cannot read properties of null (reading 'length')
+07-07-2023	21:40:45----route: /v1/volcab/get-random----method: GET----res.json.status is not a function
+07-07-2023	21:50:28----route: /v1/volcab/get-random----method: GET----Cannot access 'listZero' before initialization
+07-07-2023	22:11:26----route: /v1/volcab/get-random----method: GET----listRead.filter is not a function
+07-07-2023	22:13:01----route: /v1/volcab/get-random----method: GET----listRead.filter is not a function
+07-07-2023	22:13:51----route: /v1/volcab/get-random----method: GET----listRead.filter is not a function
+07-07-2023	22:16:35----route: /v1/volcab/get-random----method: GET----Unexpected end of JSON input
