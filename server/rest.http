@@ -1,5 +1,29 @@
+### 
 GET http://localhost:3000/volcab
 
-###
+### create new volcab
+POST http://localhost:3000/v1/volcab/create
+Content-Type: application/json
 
-GET http://localhost:3000/aa
+
+{
+    "eng":"go",
+    "vnese":["đi","aa"],
+    "example":["I go to school"]
+}
+
+###  update
+PUT http://localhost:3000/v1/volcab/update/tung
+Content-Type: application/json
+
+{
+    "_id": "64a762f803fb58251d69f846",
+    "eng":"go",
+    "vnese":["đi"]
+}
+
+
+### get all
+GET http://localhost:3000/v1/volcab/get-all
+
+

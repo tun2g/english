@@ -1,3 +1,9 @@
 06-07-2023	23:56:05----/aa---GET---Not Found06-07-2023	23:57:37----/aa---GET---Not Found07-07-2023	00:01:31----/aa---GET---Not Found
 07-07-2023	00:04:46----/volcab---GET---a is not defined
 07-07-2023	00:05:56----route: /volcab----method: GET----a is not defined
+07-07-2023	00:12:33----route: /volcab----method: GET----a is not defined
+07-07-2023	00:12:37----route: /aa----method: GET----Not Found
+07-07-2023	06:58:06----route: /volcab----method: GET----a is not defined
+07-07-2023	07:01:10----route: /volcab----method: GET----a is not defined
+07-07-2023	07:50:50----route: /v1/volcab/create----method: GET----Unexpected token } in JSON at position 71
+07-07-2023	07:55:28----route: /v1/volcab/create----method: POST----volcabs validation failed: creater: Cast to ObjectId failed for value "a" (type string) at path "creater" because of "BSONError"

@@ -4,13 +4,12 @@ const morgan = require("morgan")
 const cors = require("cors")
 const cookieParser = require("cookie-parser")
 const http = require("http")
-const createError = require("http-errors")
 
 const db = require('./configs/mongo.config');
 const corsConfig = require("./configs/cor.config");
 const corsMiddleware= require("./middlewares/cors.m") 
 const socket = require("./services/socket/index")
-const logEvent = require("./helpers/log")
+const errorMiddleware = require("./middlewares/error.m")
 
 require("dotenv").config();
 db.connect()
@@ -29,21 +28,7 @@ app.use(cookieParser());
 
 require("./routes/index")(app);
 
-// app.use('/',(req,res)=>{
-//     res.json("hello world")
-// })
-
-app.use((req,res,next)=>{
-    next(createError(404,"Not Found"))
-})
-
-app.use((err,req,res,next)=>{
-    logEvent(`route: ${req.url}----method: ${req.method}----${err.message}`)
-    res.status(err.status||500).json({
-        status:err.status || 500,
-        message:err.message,
-    })
-})
+app.use(errorMiddleware)
 
 server.listen(3000,()=>{
     console.log("Server is running on Port","3000")
