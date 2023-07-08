@@ -170,7 +170,6 @@ const VolcabController = {
 
             const priorityZero  = listDb.length - listRead.length
             
-            let listZero = listDb.slice()
             
             for(let i =0; i <listRead.length;++i){                //  [{} {}]
                 for(let j = 0 ;j <listDb.length;++j){             //  [{} {} {} {} {}]
@@ -178,17 +177,12 @@ const VolcabController = {
                         
                         // thay đổi độ ưu tiên trong listDb
                         listDb[j].priority = listRead[i].priority
-                        
-                        // xóa phần từ này trong listZero
-                        listZero.splice(j,1)
-                        console.log("delete")
                         break;
                     }
                 }
             }
             
-            console.log(listZero.map(e=>e.eng))
-
+            let listZero=listDb.filter((e)=>e.priority === 0)
             let result
 
             if(priorityZero >= number){
@@ -204,10 +198,11 @@ const VolcabController = {
                 for(let i =0; i <number;++i){
                     listRead.unshift({creater:"",volId:result[i]._id,priority:1,eng:result[i].eng})
                 }
+
+                listRead = listRead.sort((a,b)=>a._id - b._id)
+
                 await redis.set("list",JSON.stringify(listRead))
                 await redis.expire("list",10*60)
-                
-                
             }
             else {
                 // tìm ra các từ có độ ưu tiên nhỏ nhất trong các từ còn lại trong mảng listRead
@@ -217,12 +212,11 @@ const VolcabController = {
                 result = listDb.sort((a,b)=>a.priority - b.priority).slice(0,number)
                 result = result.sort((a,b)=>a._id - b._id)
 
-
                 // update lại listRead
                 for(let i = 0;i<number;++i){
-                    const isIn = listRead.filter((e)=> e.volId === result[i]._id)
-                    if(isIn){
-                        listRead[i].priority+=1
+                    const index = listRead.findIndex((e)=> JSON.stringify(e.volId) === JSON.stringify(result[i]._id))
+                    if(index >= 0){
+                        listRead[index].priority+=1
                     }
                     else {
                         listRead.push({creater:"",priority:1,volID:result[i]._id,eng:result[i].eng})
@@ -231,6 +225,7 @@ const VolcabController = {
 
                 //xếp lại theo _id
                 listRead = listRead.sort((a,b)=>a._id - b._id)
+
                 await redis.set("list",JSON.stringify(listRead))
                 await redis.expire("list",10*60)
             }
@@ -246,7 +241,28 @@ const VolcabController = {
             next(error)
             console.log(error)
         }
-    }
+    },
+    getListByQuery:async(req,res,next)=>{
+        try {
+            const list = await Volcab.find(req.query)
+            if(list){
+                res.status(200).json({
+                    status:200,
+                    messgae:"send list",
+                    list
+                })
+            }
+            else {
+                res.status(500).json({
+                    status:500,
+                    message:"page not found"
+                })
+            }
+        } catch (error) {
+            next(error)
+            console.log(error)      
+        }
+    },
 
 }
 

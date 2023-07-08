@@ -15,6 +15,8 @@ router.get('/get-pag',volcabController.getPagination)
 
 router.get('/get-random',volcabController.getRandomVolcabs)
 
+router.get('/get-query',volcabController.getListByQuery)
+
 
 module.exports = router
 
