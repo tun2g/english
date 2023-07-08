@@ -10,9 +10,10 @@ const corsConfig = require("./configs/cor.config");
 const corsMiddleware= require("./middlewares/cors.m") 
 const socket = require("./services/socket/index")
 const errorMiddleware = require("./middlewares/error.m")
-
 require("dotenv").config();
 db.connect()
+
+const PORT = process.env.PORT || 8080
 
 const app = express()
 const server = http.createServer(app)
@@ -30,6 +31,6 @@ require("./routes/index")(app);
 
 app.use(errorMiddleware)
 
-server.listen(3000,()=>{
-    console.log("Server is running on Port","3000")
+server.listen(PORT,()=>{
+    console.log("Server is running on Port",PORT)
 })
